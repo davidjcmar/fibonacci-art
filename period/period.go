@@ -35,7 +35,7 @@ func checkPeriod(s []uint64) bool {
 }
 
 /* Pisano Returns []uint64 containing pisano period */
-func Pisano(m uint) ([]uint64, error) {
+func Pisano(m uint) []uint64 {
 	pisanoPeriod := make([]uint64, 0, sliceCap)
 	f := fib()
 	for {
@@ -48,5 +48,5 @@ func Pisano(m uint) ([]uint64, error) {
 			break
 		}
 	}
-	return pisanoPeriod[:len(pisanoPeriod)-3], nil
+	return pisanoPeriod[:len(pisanoPeriod)-3]
 }
