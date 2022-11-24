@@ -1,4 +1,4 @@
-# fibonnaci-art
+# fibonacci-art
 
 ## Concept
 
