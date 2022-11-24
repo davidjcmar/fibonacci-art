@@ -1,0 +1,8 @@
+3_orange.png
+`fibonacci-art --mod=3 --width=200 --height=200 --radius=90 --line=1 --outline=1 --red=255 --blue=0 --green=100 --ored=0 --oblue=0 --ogreen=0 --out="examples/test"`
+
+7_green.png
+`fibonacci-art --mod=7 --width=200 --height=200 --radius=90 --line=1 --outline=1 --red=0 --blue=0 --green=100 --ored=0 --oblue=0 --ogreen=255 --out="examples/7_green.png"
+
+13_red.png
+./bin/fibonacci-art --mod=13 --width=200 --height=200 --radius=90 --line=1 --outline=1 --red=255 --blue=0 --green=100 --ored=255 --oblue=255 --ogreen=255 --out="examples/13_red.png"`
