@@ -7,6 +7,7 @@ import (
 	"github.com/fogleman/gg"
 )
 
+// enum for config.Config RGB255 selection
 const (
 	red = iota
 	green = iota
@@ -30,12 +31,14 @@ func convertToCircXy(m uint, p []uint64, cx, cy, r float64) []coord {
 	return coords
 }
 
+// Function drawBackground takes a config.Config struct and gg.Context and draws the background color for the generated image
 func drawBackground(c config.Config, dc *gg.Context) {
 	dc.SetRGB255(c.BackgroundColor[red], c.BackgroundColor[green], c.BackgroundColor[blue])
 	dc.DrawRectangle(0, 0, float64(c.CanvasWidth), float64(c.CanvasHeight))
 	dc.Fill()
 }
 
+// Function drawCircle tages a config.Config stuct, a slice coords, and a gg.Context and draws the outer circle for the generated image
 func drawCircle(c config.Config, coords []coord, dc *gg.Context) {
 	// draw outline
 	dc.SetRGB255(c.OutlineColor[red], c.OutlineColor[green], c.OutlineColor[blue])
@@ -69,6 +72,7 @@ func drawCircle(c config.Config, coords []coord, dc *gg.Context) {
 	}
 }
 
+// Function Draw takes a config.Config struct and a slice of uint64 pisano period values and orchestrates creating a gg.Context and calling other drawers
 func Draw(c config.Config, p []uint64) {
 	dc := gg.NewContext(c.CanvasWidth, c.CanvasHeight)
 	drawBackground(c, dc)

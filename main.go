@@ -10,10 +10,7 @@ import (
 	period "github.com/davidjcmar/fibonacci-art/period"
 )
 
-func help() {
-	fmt.Println(os.Args[0], "[mod]")
-}
-
+// Function initArgs parses command line arguments and initializes the config.Config struct with the values
 func initArgs() *config.Config {
 	mod := flag.Uint("mod", 7, "Modulus for pisano period")
 	cw := flag.Int("width", 250, "Canvas width")
@@ -50,19 +47,4 @@ func initArgs() *config.Config {
 func main() {
 	config:= initArgs()
 	draw.Draw(*config, period.Pisano(config.Modulo))
-
-	/*
-	if len(os.Args) != 2 {
-		help()
-		os.Exit(-1)
-	} else {
-		u32, err := strconv.ParseUint(os.Args[1], 10, 32)
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(-1)
-		}
-		p, _ := period.Pisano(uint(u32))
-		fmt.Println(p)
-	}
-	*/
 }
