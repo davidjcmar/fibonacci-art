@@ -1,5 +1,12 @@
 package config
 
+// enum for config.Config RGB255 selection
+const (
+	Red = iota
+	Green = iota
+	Blue = iota
+)
+
 type Config struct {
 	Modulo uint
 	CanvasWidth, CanvasHeight int

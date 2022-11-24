@@ -7,13 +7,6 @@ import (
 	"github.com/fogleman/gg"
 )
 
-// enum for config.Config RGB255 selection
-const (
-	red = iota
-	green = iota
-	blue = iota
-)
-
 // Type coord represents a point on a 2-D coordinate plane
 type coord struct {
 	x, y float64
@@ -33,7 +26,7 @@ func convertToCircXy(m uint, p []uint64, cx, cy, r float64) []coord {
 
 // Function drawBackground takes a config.Config struct and gg.Context and draws the background color for the generated image
 func drawBackground(c config.Config, dc *gg.Context) {
-	dc.SetRGB255(c.BackgroundColor[red], c.BackgroundColor[green], c.BackgroundColor[blue])
+	dc.SetRGB255(c.BackgroundColor[config.Red], c.BackgroundColor[config.Green], c.BackgroundColor[config.Blue])
 	dc.DrawRectangle(0, 0, float64(c.CanvasWidth), float64(c.CanvasHeight))
 	dc.Fill()
 }
@@ -41,7 +34,7 @@ func drawBackground(c config.Config, dc *gg.Context) {
 // Function drawCircle tages a config.Config stuct, a slice coords, and a gg.Context and draws the outer circle for the generated image
 func drawCircle(c config.Config, coords []coord, dc *gg.Context) {
 	// draw outline
-	dc.SetRGB255(c.OutlineColor[red], c.OutlineColor[green], c.OutlineColor[blue])
+	dc.SetRGB255(c.OutlineColor[config.Red], c.OutlineColor[config.Green], c.OutlineColor[config.Blue])
 	dc.SetLineWidth(c.OutlineWidth)
 	dc.DrawCircle(
 		float64(c.CanvasWidth/2),
@@ -50,7 +43,7 @@ func drawCircle(c config.Config, coords []coord, dc *gg.Context) {
 	)
 	dc.Fill()
 	// replace inner circle with background color
-	dc.SetRGB255(c.BackgroundColor[red], c.BackgroundColor[green], c.BackgroundColor[blue])
+	dc.SetRGB255(c.BackgroundColor[config.Red], c.BackgroundColor[config.Green], c.BackgroundColor[config.Blue])
 	dc.SetLineWidth(0)
 	dc.DrawCircle(
 		float64(c.CanvasWidth/2),
@@ -60,7 +53,7 @@ func drawCircle(c config.Config, coords []coord, dc *gg.Context) {
 	dc.Fill()
 	
 	// draw inscribed lines
-	dc.SetRGB255(c.LineColor[red], c.LineColor[green], c.LineColor[blue])
+	dc.SetRGB255(c.LineColor[config.Red], c.LineColor[config.Green], c.LineColor[config.Blue])
 	dc.SetLineWidth(c.LineWidth)
 	dc.RotateAbout(math.Pi/2, float64(c.CanvasWidth/2), float64(c.CanvasHeight/2))
 	for i, _ := range(coords) {
